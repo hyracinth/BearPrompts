@@ -1,0 +1,34 @@
+<div class="submit-form">
+    <div *ngIf="!submitted">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          required
+          [(ngModel)]="currBearPrompt.title"
+          name="title"
+        />
+      </div>
+  
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input
+          class="form-control"
+          id="description"
+          required
+          [(ngModel)]="currBearPrompt.description"
+          name="description"
+        />
+      </div>
+  
+      <button (click)="savePrompt()" class="btn btn-success">Submit</button>
+    </div>
+  
+    <div *ngIf="submitted">
+      <h4>Submit successful.</h4>
+      <button class="btn btn-success" (click)="resetPrompt()">Add</button>
+    </div>
+  </div>
+  
