@@ -9,9 +9,9 @@ import { PromptsService } from 'src/app/services/prompts.service';
 })
 export class DetailsPromptComponent implements OnInit {
 
-  @Input() prompt: BearPrompt | undefined;
+  @Input() prompt: BearPrompt;
   @Output() refreshList: EventEmitter<any> = new EventEmitter();
-  currentPrompt: BearPrompt | undefined;
+  currentPrompt: BearPrompt;
   message = '';
   
   constructor(private promptService: PromptsService) { }

@@ -8,7 +8,7 @@
           [class.active]="i == currIndex"
           (click)="setActivePrompt(prompt, i)"
         >
-          {{ prompt.title }}
+          {{ prompt.Theme }}
         </li>
       </ul>
   
@@ -27,7 +27,7 @@
   
       <div *ngIf="!currPrompt">
         <br />
-        <p>Please click on a Tutorial...</p>
+        <p>Please select a prompt!</p>
       </div>
     </div>
   </div>

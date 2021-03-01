@@ -1,46 +1,51 @@
 <div *ngIf="currentPrompt" class="edit-form">
-    <h4>Tutorial</h4>
+    <h4>Bear Prompt</h4>
     <form>
       <div class="form-group">
-        <label for="title">Title</label>
+        <label for="Theme">Theme</label>
         <input
           type="text"
           class="form-control"
-          id="title"
-          [(ngModel)]="currentPrompt.title"
-          name="title"
+          id="Theme"
+          [(ngModel)]="currentPrompt.Theme"
+          name="Theme"
         />
       </div>
+
       <div class="form-group">
-        <label for="description">Description</label>
+        <label for="SuggestedBy">SuggestedBy</label>
         <input
           type="text"
           class="form-control"
-          id="description"
-          [(ngModel)]="currentPrompt.description"
-          name="description"
+          id="SuggestedBy"
+          [(ngModel)]="currentPrompt.SuggestedBy"
+          name="SuggestedBy"
         />
       </div>
-  
+
       <div class="form-group">
-        <label><strong>Status:</strong></label>
-        {{ currentPrompt.published ? "Published" : "Pending" }}
+        <label for="SuggestionDate">SuggestionDate</label>
+        <input
+          type="text"
+          class="form-control"
+          id="SuggestionDate"
+          [(ngModel)]="currentPrompt.SuggestionDate"
+          name="SuggestionDate"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="DoddleDate">DoddleDate</label>
+        <input
+          type="text"
+          class="form-control"
+          id="DoddleDate"
+          [(ngModel)]="currentPrompt.DoddleDate"
+          name="DoddleDate"
+        />
       </div>
     </form>
-  
-    <button
-      class="badge badge-primary mr-2"
-      *ngIf="currentPrompt.published"
-    >
-      UnPublish
-    </button>
-    <button
-      *ngIf="!currentPrompt.published"
-      class="badge badge-primary mr-2"
-    >
-      Publish
-    </button>
-  
+    
     <button class="badge badge-danger mr-2">
       Delete
     </button>
