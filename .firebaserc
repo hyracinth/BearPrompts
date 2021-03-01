@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "bearprompts-4249b"
+  },
+  "targets": {
+    "bearprompts-4249b": {
+      "hosting": {
+        "BearPrompts": [
+          "bearprompts-4249b"
+        ]
+      }
+    }
   }
 }
