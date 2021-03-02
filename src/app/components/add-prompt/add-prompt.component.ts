@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import BearPrompt from 'src/app/models/BearPrompt';
-import { PromptsService } from 'src/app/services/prompts.service';
+import { PromptsService } from 'src/app/services/prompts/prompts.service';
 
 @Component({
   selector: 'app-add-prompt',
@@ -20,7 +20,8 @@ export class AddPromptComponent implements OnInit {
 
   savePrompt(): void {
     if(this.currBearPrompt.isValid()) {
-      this.promptsService.create(this.currBearPrompt).then( () => {
+      this.promptsService.create(this.currBearPrompt).then( (response) => {
+        console.log(response);
         console.log('Created new prompt successfully.');
         this.submitted = true;
         this.errorMsg = '';

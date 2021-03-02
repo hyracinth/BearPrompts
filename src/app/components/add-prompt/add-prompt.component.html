@@ -63,7 +63,9 @@
   <h4>New prompt added!</h4>
   <button class="btn btn-success" (click)="resetPrompt()">Add Another</button>
 </div>
-<div *ngIf="errorMsg">
-  <h4> Careful! </h4>
-  <h5> {{ errorMsg }} </h5>
+<div class="column col-5">
+  <div *ngIf="errorMsg" class="toast toast-error">
+    <h5> Careful! </h5>
+    <p> {{ errorMsg }} </p>
+  </div>
 </div>

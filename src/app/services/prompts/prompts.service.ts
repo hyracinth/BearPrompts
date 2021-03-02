@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
-import BearPrompt from '../models/BearPrompt';
+import BearPrompt from '../../models/BearPrompt';
 
 @Injectable({
   providedIn: 'root'

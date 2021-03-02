@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import BearPrompt from 'src/app/models/BearPrompt';
-import { PromptsService } from 'src/app/services/prompts.service';
+import { PromptsService } from 'src/app/services/prompts/prompts.service';
 
 @Component({
   selector: 'app-details-prompt',

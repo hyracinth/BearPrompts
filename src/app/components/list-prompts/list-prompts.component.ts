@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { PromptsService } from 'src/app/services/prompts.service';
 import { map } from 'rxjs/operators';
 import BearPrompt from 'src/app/models/BearPrompt';
+import { AuthService } from 'src/app/services/auth/auth.service';
+import { PromptsService } from 'src/app/services/prompts/prompts.service';
 
 @Component({
   selector: 'app-list-prompts',
@@ -11,11 +12,11 @@ import BearPrompt from 'src/app/models/BearPrompt';
 export class ListPromptsComponent implements OnInit {
 
   bearPrompts: any;
-  currPrompt = null;
+  currPrompt:BearPrompt = null;
   currIndex = -1;
   title = '';
 
-  constructor(private promptService: PromptsService) { }
+  constructor(private promptService: PromptsService, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.retrievePrompts();
@@ -48,6 +49,14 @@ export class ListPromptsComponent implements OnInit {
     this.promptService.deleteAll()
       .then(() => this.refreshList())
       .catch(err => console.log(err));
+  }
+
+  test() {
+    this.authService.testLogin();
+  }
+
+  test1() {
+    this.authService.SignOut();
   }
 
 }
