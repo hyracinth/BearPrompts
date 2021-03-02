@@ -1,34 +1,19 @@
-<div class="list row">
-    <div class="col-md-6">
-      <h4>Bear Prompts List</h4>
-      <ul class="list-group">
-        <li
-          class="list-group-item"
-          *ngFor="let prompt of bearPrompts; let i = index"
-          [class.active]="i == currIndex"
-          (click)="setActivePrompt(prompt, i)"
-        >
-          {{ prompt.Theme }}
-        </li>
-      </ul>
-  
-      <button class="m-3 btn btn-sm btn-danger" (click)="removeAllPrompts()">
-        Remove All
-      </button>
-    </div>
-  
-    <div class="col-md-6">
-      <div *ngIf="currPrompt">
-        <app-details-prompt
-          (refreshList)="refreshList()"
-          [prompt]="currPrompt"
-        ></app-details-prompt>
-      </div>
-  
-      <div *ngIf="!currPrompt">
-        <br />
-        <p>Please select a prompt!</p>
-      </div>
-    </div>
-  </div>
-  
+<div class="column col-9 col-md-12">
+  <table class="table table-striped table-hover">
+    <thead>
+      <th>Theme</th>
+      <th>Suggested By</th>
+      <th>Suggestion Date</th>
+      <th>Doddle Date</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let prompt of bearPrompts; let ii = index"
+          (click)="setActivePrompt(prompt, ii)">
+          <td> {{ prompt.Theme }} </td>
+          <td> {{ prompt.SuggestedBy }} </td>
+          <td> {{ prompt.SuggestionDate }} </td>
+          <td> {{ prompt.DoddleDate }} </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

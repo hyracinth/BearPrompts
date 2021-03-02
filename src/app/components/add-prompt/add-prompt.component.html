@@ -1,56 +1,69 @@
-<div class="submit-form">
-    <div *ngIf="!submitted">
-      <div class="form-group">
-        <label for="Theme">Theme</label>
-        <input
-          type="text"
-          class="form-control"
-          id="Theme"
-          required
-          [(ngModel)]="currBearPrompt.Theme"
-          name="Theme"
-        />
+<div *ngIf="!submitted" class="column col-6 col-sm-12">
+  <form class="form-horizontal">
+    <div class="form-group">
+      <div class="col-3 col-sm-12">
+        <label class="form-label" for="Theme">Theme</label>
       </div>
-  
-      <div class="form-group">
-        <label for="SuggestedBy">SuggestedBy</label>
-        <input
-          class="form-control"
-          id="SuggestedBy"
-          required
-          [(ngModel)]="currBearPrompt.SuggestedBy"
-          name="SuggestedBy"
-        />
+      <div class="col-6 col-sm-12">
+        <input class="form-input" 
+               type="text" 
+               id="Theme" 
+               placeholder="Theme"
+               name="Theme"
+               [(ngModel)]="currBearPrompt.Theme">
       </div>
-  
-      <div class="form-group">
-        <label for="SuggestionDate">SuggestionDate</label>
-        <input
-          class="form-control"
-          id="SuggestionDate"
-          required
-          [(ngModel)]="currBearPrompt.SuggestionDate"
-          name="SuggestionDate"
-        />
-      </div>
-  
-      <div class="form-group">
-        <label for="DoddleDate">DoddleDate</label>
-        <input
-          class="form-control"
-          id="DoddleDate"
-          required
-          [(ngModel)]="currBearPrompt.DoddleDate"
-          name="DoddleDate"
-        />
-      </div>
-  
-      <button (click)="savePrompt()" class="btn btn-success">Submit</button>
     </div>
-  
-    <div *ngIf="submitted">
-      <h4>Submit successful.</h4>
-      <button class="btn btn-success" (click)="resetPrompt()">Add</button>
+
+    <div class="form-group">
+      <div class="col-3 col-sm-12">
+        <label class="form-label" for="SuggestedBy">Suggested By</label>
+      </div>
+      <div class="col-6 col-sm-12">
+        <input class="form-input" 
+               type="text" 
+               id="SuggestedBy" 
+               placeholder="Suggested By"
+               name="SuggestedBy"
+               [(ngModel)]="currBearPrompt.SuggestedBy">
+      </div>
     </div>
-  </div>
-  
+    
+    <div class="form-group">
+      <div class="col-3 col-sm-12">
+        <label class="form-label" for="SuggestionDate">Suggestion Date</label>
+      </div>
+      <div class="col-6 col-sm-12">
+        <input class="form-input" 
+               type="date" 
+               id="SuggestionDate" 
+               placeholder="Suggestion Date"
+               name="SuggestionDate"
+               [(ngModel)]="currBearPrompt.SuggestionDate">
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <div class="col-3 col-sm-12">
+        <label class="form-label" for="DoddleDate">Doddle Date</label>
+      </div>
+      <div class="col-6 col-sm-12">
+        <input class="form-input" 
+               type="date" 
+               id="DoddleDate" 
+               placeholder="Doddle Date"
+               name="DoddleDate"
+               [(ngModel)]="currBearPrompt.DoddleDate">
+      </div>
+    </div>
+
+    <button (click)="savePrompt()" class="btn btn-success">Submit</button>
+  </form>
+</div>
+<div *ngIf="submitted">
+  <h4>New prompt added!</h4>
+  <button class="btn btn-success" (click)="resetPrompt()">Add Another</button>
+</div>
+<div *ngIf="errorMsg">
+  <h4> Careful! </h4>
+  <h5> {{ errorMsg }} </h5>
+</div>

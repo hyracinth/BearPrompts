@@ -11,6 +11,7 @@ export class AddPromptComponent implements OnInit {
 
   currBearPrompt: BearPrompt = new BearPrompt();
   submitted: Boolean = false;
+  errorMsg: string = '';
 
   constructor(private promptsService: PromptsService) { }
 
@@ -18,10 +19,16 @@ export class AddPromptComponent implements OnInit {
   }
 
   savePrompt(): void {
-    this.promptsService.create(this.currBearPrompt).then( () => {
-      console.log('Created new prompt successfully.');
-      this.submitted = true;
-    })
+    if(this.currBearPrompt.isValid()) {
+      this.promptsService.create(this.currBearPrompt).then( () => {
+        console.log('Created new prompt successfully.');
+        this.submitted = true;
+        this.errorMsg = '';
+      })
+    }
+    else {
+      this.errorMsg = 'This is not a valid prompt! Missing a field or two!';
+    }
   }
 
   resetPrompt(): void {

@@ -22,7 +22,7 @@ export class DetailsPromptComponent implements OnInit {
 
   ngOnChanges(): void {
     this.message = '';
-    this.currentPrompt = { ...this.prompt};
+    this.currentPrompt = this.prompt;
   }
 
   /**
