@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { AddPromptComponent } from './components/add-prompt/add-prompt.component';
 import { ListPromptsComponent } from './components/list-prompts/list-prompts.component';
 import { DetailsPromptComponent } from './components/details-prompt/details-prompt.component';
+import { SignInComponent } from './components/sign-in/sign-in.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { DetailsPromptComponent } from './components/details-prompt/details-prom
     AppComponent,
     AddPromptComponent,
     ListPromptsComponent,
-    DetailsPromptComponent
+    DetailsPromptComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,

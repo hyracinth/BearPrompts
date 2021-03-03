@@ -1,0 +1,38 @@
+<div class="column col-6 col-sm-12">
+  <form class="form-horizontal">
+    <div class="form-group">
+      <div class="col-3 col-sm-12">
+        <label class="form-label" for="Email">Email</label>
+      </div>
+      <div class="col-6 col-sm-12">
+        <input class="form-input" 
+                type="email" 
+                id="Email" 
+                placeholder="Email"
+                name="Email"
+                [(ngModel)]="currSignInUser.email">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-3 col-sm-12">
+        <label class="form-label" for="Password">Password</label>
+      </div>
+      <div class="col-6 col-sm-12">
+        <input class="form-input" 
+                type="password" 
+                id="Password" 
+                name="Password"
+                [(ngModel)]="currSignInUser.password">
+      </div>
+    </div>
+    
+    <button (click)="signInUser()" class="btn btn-success">Submit</button>
+  </form>
+  <div class="col col-5">
+    <div *ngIf="errorMsg" class="toast toast-error">
+      <h5> Careful! </h5>
+      <p> {{ errorMsg }} </p>
+    </div>
+  </div>
+</div>

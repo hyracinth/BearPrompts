@@ -3,7 +3,12 @@
     <section class="navbar-section">
       <a href="#" class="navbar-brand text-bold mr-2">JennyNjoys</a>
       <a routerLink="bearPrompts" class="btn btn-link">Bear Prompts</a>
-      <a routerLink="add" class="btn btn-link">Add</a>
+      <a *ngIf="authenticated" routerLink="add" class="btn btn-link">Add Prompt</a>
+    </section>
+
+    <section class="navbar-section">
+      <a *ngIf="!authenticated" routerLink="signIn" class="btn btn-link">Login</a>
+      <a *ngIf="authenticated" (click)="signOut()" class="btn btn-link">Logout</a>
     </section>
   </header>
 

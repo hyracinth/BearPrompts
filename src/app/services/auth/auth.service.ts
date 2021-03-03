@@ -1,10 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from  "@angular/router";
 import { AngularFireAuth } from  "@angular/fire/auth";
-import { Observable } from 'rxjs';
 import { User } from 'src/app/models/User';
-import BearPrompt from 'src/app/models/BearPrompt';
-
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +16,6 @@ export class AuthService {
         this.userData = user;
         this.isLoggedIn = true;
         localStorage.setItem('user', JSON.stringify(this.userData));
-        console.log(this.userData);
       }
       else {
         localStorage.setItem('user', null);
@@ -29,26 +25,19 @@ export class AuthService {
     })
   }
 
-  testLogin() {
-  }
-
-  SignIn(email, password) {
+  signIn(email, password) {
     return this.afAuth.signInWithEmailAndPassword(email, password)
       .then((result) => {
-        console.log(result);
-        // this.ngZone.run(() => {
-        //   this.router.navigate(['dashboard']);
-        // });
+        this.router.navigate(['bearPrompts']);
         this.isLoggedIn = true;
         this.SetUserData(result.user);
       }).catch((error) => {
         this.isLoggedIn = false;
-        window.alert(error.message)
+        console.error(error.message)
       })
   }
 
   SetUserData(user) {
-    //const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
     const userData: User = {
       uid: user.uid,
       email: user.email,
@@ -60,7 +49,10 @@ export class AuthService {
     return this.afAuth.signOut().then(() => {
       localStorage.removeItem('user');
       this.isLoggedIn = false;
-      //this.router.navigate(['sign-in']);
     })
+  }
+
+  Authenticated() {
+    return this.isLoggedIn;
   }
 }

@@ -50,13 +50,4 @@ export class ListPromptsComponent implements OnInit {
       .then(() => this.refreshList())
       .catch(err => console.log(err));
   }
-
-  test() {
-    this.authService.testLogin();
-  }
-
-  test1() {
-    this.authService.SignOut();
-  }
-
 }
